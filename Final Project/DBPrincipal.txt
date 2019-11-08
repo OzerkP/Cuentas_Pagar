@@ -1,0 +1,64 @@
+create table Producto(
+    id_producto int primary key auto_increment,
+    producto_nombre varchar(100) not null,
+    descripcion longText not null,
+    categoria varchar(100) not null,
+    marca varchar(100) not null,
+    precio double not null,
+    cantidad int not null
+    );
+    
+create table Suplidor(
+    id_suplidor int primary key auto_increment,
+    empresa varchar(50) not null,
+    nombre_suplidor varchar(50) null,
+    direccion varchar(100) not null,
+    telefono varchar(20) not null,
+    correo varchar(50) not null,
+    RNC varchar(50) not null
+    );
+    
+    
+create table Pedido_proveedor (
+    id_pedido int primary key auto_increment,
+    monto double not null,
+    modo_pago varchar(50) not null,
+    id_producto int,
+    fecha_pago varchar(50) not null,
+    fecha_recibo varchar(50) not null,
+    estado varchar(50) not null,
+    foreign key (id_producto) references Producto (id_producto)
+    );
+    
+create table Suplidor_producto(
+    id_producto int,
+    id_suplidor int,
+    precio double not null,
+    cantidad int not null,
+    foreign key (id_producto) references Producto (id_producto),
+    foreign key (id_suplidor) references Suplidor (id_suplidor)
+    );
+    
+
+create table Cliente (
+    id_cliente int primary key auto_increment,
+    nombre_cliente varchar(50) not null,
+    apellido_cliente varchar(50) not null
+    );
+    
+create table Factura (
+    id_factura int primary key auto_increment,
+    id_cliente int,
+    monto double not null,
+    foreign key (id_cliente) references Cliente (id_cliente)
+    );
+    
+create table CXP (
+    id_pagar int primary key auto_increment,
+    id_suplidor int,
+    id_factura int,
+    id_pedido int,
+    foreign key (id_suplidor) references Suplidor(id_suplidor),
+    foreign key (id_factura) references Factura(id_factura),
+    foreign key (id_pedido) references Pedido_proveedor (id_pedido)
+    );

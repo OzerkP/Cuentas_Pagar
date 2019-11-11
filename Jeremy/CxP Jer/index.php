@@ -20,13 +20,22 @@
     <thead>
       <tr>
         <th scope="col">#</th>
+        <th scope="col">Empresa</th>
         <th scope="col">Suplidor</th>
-        <th scope="col">Pedido</th>
+        <th scope="col">Direccion</th>
+        <th scope="col">Telefono</th>
+        <th scope="col">Correo</th>
+        <th scope="col">Producto/Servicio</th>
         <th scope="col">Cantidad</th>
-        <th scope="col">Costo</th>
+       <th scope="col">Fecha de recibo</th>
+        <th scope="col">Fecha de pago</th>
+        <th scope="col">Modo pago</th>
         <th scope="col">Monto</th>
-        <th scope="col">Fecha limite</th>
+        <th scope="col">Estado</th>
         <th scope="col">Factura</th>
+        
+
+
       </tr>
     </thead>
     <?php $sql = "SELECT * FROM suplidor 
@@ -50,8 +59,8 @@
     <tbody>
       <tr>
         <th scope="row"><?php echo $filas['id_suplidor']?></th>
-        <td><?php echo $filas['nombre_suplidor']?></td>
         <td>the Bird</td>
+        <td><?php echo $filas['nombre_suplidor']?></td>
         <td>@twitter</td>
         <td>the Bird</td>
         <td>@twitter</td>

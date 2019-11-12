@@ -17,7 +17,7 @@
 </header>
 
 <table class="table table-striped">
-    <thead>
+    <thead class="thead-dark">
       <tr>
         <th scope="col">#</th>
         <th scope="col">Empresa</th>
@@ -59,11 +59,11 @@
     <tbody>
       <tr>
         <th scope="row"><?php echo $filas['id_suplidor']?></th>
-        <td>the Bird</td>
+        <td><?php echo $filas['empresa']?></td>
         <td><?php echo $filas['nombre_suplidor']?></td>
-        <td>@twitter</td>
-        <td>the Bird</td>
-        <td>@twitter</td>
+        <td><?php echo $filas['direccion']?></td>
+        <td><?php echo $filas['telefono']?></td>
+        <td><?php echo $filas['correo']?></td>
         <td>the Bird</td>
         <td>@twitter</td>
       </tr>

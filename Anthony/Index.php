@@ -59,24 +59,24 @@
   </thead>
   <tbody>
       <?php 
-       $sql = "SELECT * FROM suplidor1";
+       $sql = "SELECT * FROM suplidor";
        $resultado = mysqli_query($con, $sql);
       while ($filas = mysqli_fetch_array($resultado) ){
       ?> 
 
     <tr>
-      <th><?php echo $filas['id']?></th>
+      <th><?php echo $filas['id_suplidor']?></th>
       <td><?php echo $filas['empresa']?></td>
-      <td><?php echo $filas['Nombre_Suplidor']?></td>
+      <td><?php echo $filas['nombre_suplidor']?></td>
       <td><?php echo $filas['direccion']?></td>
       <td><?php echo $filas['telefono']?></td>
       <td><?php echo $filas['correo']?></td>
       <td><?php echo $filas['RNC']?> </td>
       <td> 
-      <a href="editar.php?id=<?php echo $filas['id']?>" class="btn btn-secondary">
+      <a href="editar.php?id=<?php echo $filas['id_suplidor']?>" class="btn btn-secondary">
       <i class="fas fa-user-edit"></i>
       </a>
-      <a href="eliminar.php?id=<?php echo $filas['id']?>" class="btn btn-danger">
+      <a href="eliminar.php?id=<?php echo $filas['id_suplidor']?>" class="btn btn-danger">
        <i class="far fa-trash-alt"></i>
       </a>
       </td>

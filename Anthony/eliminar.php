@@ -3,7 +3,7 @@
 include "Conexion.php";
 if (isset($_GET['id'] )){
 $id = $_GET['id'];
-$query ="DELETE FROM suplidor1 WHERE id = $id";
+$query ="DELETE FROM suplidor WHERE id_suplidor = $id";
 $result = mysqli_query($con,$query);
 if(!result){
     die("Ha fallado");

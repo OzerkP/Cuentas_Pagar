@@ -7,12 +7,12 @@ del programa.
 */
 if (isset($_GET['id'] )){
 $id = $_GET['id'];
-$query ="SELECT * FROM suplidor1 WHERE id = $id";
+$query ="SELECT * FROM suplidor WHERE id_suplidor = $id";
 $result = mysqli_query($con,$query);
 if (mysqli_num_rows($result) == 1){
     $filas = mysqli_fetch_array($result);
     $empresa = $filas['empresa'];
-     $nombre = $filas['Nombre_Suplidor'];
+     $nombre = $filas['nombre_suplidor'];
      $direccion = $filas['direccion'];
      $telefono = $filas['telefono'];
     $correo= $filas['correo'];
@@ -25,14 +25,14 @@ if (mysqli_num_rows($result) == 1){
 if(isset($_POST['Actualizar'])){
 $id = $_GET['id'];
     
-    $nombre = $_POST['Nombre_Suplidor'];
+    $nombre = $_POST['nombre_suplidor'];
     $empresa = $_POST['empresa'];
     $direccion = $_POST['direccion'];
     $telefono = $_POST['telefono'];
     $correo = $_POST['correo'];
     $rnc = $_POST['RNC'];
 /*Este es el query de la actualizacion de los datos del usuario  */
- $query = "UPDATE suplidor1 set Nombre_Suplidor = '$nombre', empresa = '$empresa', direccion = '$direccion', telefono = '$telefono', correo = '$correo',RNC = '$rnc' WHERE id = $id ";
+ $query = "UPDATE suplidor set nombre_suplidor = '$nombre', empresa = '$empresa', direccion = '$direccion', telefono = '$telefono', correo = '$correo',RNC = '$rnc' WHERE id_suplidor = $id ";
  mysqli_query($con,$query);
 
  $_SESSION['message'] = 'Se ha Actualizado Correctamente!';
@@ -56,7 +56,7 @@ $id = $_GET['id'];
 <div class="form-group">
 <h3 class="text-center">Actualizar Informacion </h3>
 <h4 class="text-center">Suplidor </h4>
-<input type="text" id="nombre" name="Nombre_Suplidor" value="<?php echo $nombre; ?>" class="form-control" placeholder="Actualizar Nombre ">
+<input type="text" id="nombre" name="nombre_suplidor" value="<?php echo $nombre; ?>" class="form-control" placeholder="Actualizar Nombre ">
 <br>
 <input type="text"  id="empresa" name="empresa" value="<?php echo $empresa; ?>" class="form-control" placeholder="Actualizar Empresa ">
 <br>

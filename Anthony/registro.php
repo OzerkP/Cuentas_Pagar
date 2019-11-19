@@ -9,7 +9,7 @@ $telefono = $_POST['telefono'];
 $correo = $_POST['correo'];
 $rnc = $_POST['rnc'];
 
-$query = "INSERT INTO suplidor1(empresa,Nombre_Suplidor,direccion,telefono,correo,RNC) VALUES 
+$query = "INSERT INTO suplidor(empresa,nombre_suplidor,direccion,telefono,correo,RNC) VALUES 
 ('$empresa','$nombre','$direccion','$telefono','$correo','$rnc')";
 $result = mysqli_query($con,$query);
 

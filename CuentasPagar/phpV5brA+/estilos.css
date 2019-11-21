@@ -1,0 +1,12 @@
+label{margin-left:-8em;
+    position: relative;
+     bottom: -2.5em;
+     }
+     input{
+    margin-left:-4em;
+    position: relative;
+     }
+     .botones{
+       position: absolute;
+       right: -4em;
+      }

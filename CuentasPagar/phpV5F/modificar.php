@@ -11,7 +11,7 @@ if (isset($_GET['id_pedido'])) {
     $monto       = $data['monto'];
     $modo_pago   = $data['modo_pago'];
     $id_producto = $data['id_producto'];
-    $id_factura  = $data['id_factura'];
+    #$id_factura  = $data['id_factura'];
     $fecha_recibo = $data['fecha_recibo'];
     $fecha_pago  = $data['fecha_recibo'];
     $estado      = $data['estado'];
@@ -25,12 +25,11 @@ try {
     $input_monto = $_POST['input_monto'];
     $modo_pago = $_POST['select1'];
     $id_producto = $_POST['input_id_producto'];
-    $id_factura  = $data['id_factura'];
+    #$id_factura  = $data['id_factura'];
     $fecha_recibo = $_POST['input_recibo'];
     $fecha_pago = $_POST['input_pago'];
-    $estado = $_POST['select2'];
 
-    $query2 = ("UPDATE pedido_proveedor set monto = $input_monto, modo_pago = '$modo_pago', id_producto = $id_producto, id_factura = $id_factura, fecha_pago = '$fecha_pago', fecha_recibo = '$fecha_recibo', estado = '$estado' WHERE id_pedido = $id_ped");
+    $query2 = ("UPDATE pedido_proveedor set monto = $input_monto, modo_pago = '$modo_pago', id_producto = $id_producto, fecha_pago = '$fecha_pago', fecha_recibo = '$fecha_recibo' WHERE id_pedido = $id_ped");
     mysqli_query($con, $query2);
     echo $query2;
     header("Location:Cuentas_pagar2V3.php");
@@ -70,7 +69,7 @@ try {
           <label for="cliente">Cliente: usuario</label>
           <div class="form-group">
           <label for="monto">Monto</label><br>
-            <input type="text" size="50" name="input_monto" placeholder="Monto" value="<?php echo $monto; ?>" autofocus required />
+            <input type="text" size="50" name="input_monto" placeholder="Monto" value="<?php echo $monto; ?>" required="autocomplete" autofocus required />
             <br>
 
             <br><label for="modo">Modo de Pago</label>
@@ -80,26 +79,27 @@ try {
               <option value="efectivo">&ltEfectivo&gt</option>
             </select>
             <br>
-            <div class="pos">
+           <!-- <div class="pos">
               <label for="estado">Estado</label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
               <select name="select2" value="<?php echo $estado; ?>">
                 <option value="pago">Pagado</option>
                 <option value="pendiente">Pendiente</option>
                 <option value="atrazado">Atrazado</option>
               </select>
-            </div>
+            </div>-->
+
             <label for="id_productor">Id del producto</label>
             <br>
-            <input name="input_id_producto" type="text" size="50" placeholder="Id del Producto" value="<?php echo $id_producto; ?>">
+            <input name="input_id_producto" type="text" size="50" placeholder="Id del Producto" required="autocomplete" value="<?php echo $id_producto; ?>" >
           </div>
-           <label for="id_factura">Id de la factura</label>
-            <input name="input_id_factura" type="text" size="40" placeholder="Id de la factura" value="<?php echo $id_factura; ?>">
+         <!--<label for="id_factura">Id de la factura</label>
+           <input name="input_id_factura" type="text" size="40" placeholder="Id de la factura" value="<?php echo $id_factura; ?>"> -->
           <br>
           <label for="pago">Fecha de pago</label>
-          <input name="input_pago" type="text" size="50" placeholder="Fecha de pago" value="<?php echo $fecha_pago; ?>">
+          <input name="input_pago" type="text" size="50" maxlength="10" placeholder="Fecha de pago" required="autocomplete" value="<?php echo $fecha_pago; ?>">
           <br>
           <label for="recibo">Fecha de entrega</label>
-          <input name="input_recibo" type="text" size="50" placeholder="Fecha de recibo" value="<?php echo $fecha_recibo; ?>">
+          <input name="input_recibo" type="text" size="50" maxlength="10" required="autocomplete" placeholder="Fecha de recibo" value="<?php echo $fecha_recibo; ?>">
           <br>
           <button type="submit" name="actualizar" class="btn btn btn-info">Actualizar</button>
           <a href="Cuentas_pagar2V3.php" name="volver" class="btn btn btn-dark" role="button">Volver</a>

@@ -14,6 +14,26 @@ if(monto ==="" || modo ===""||  || id_producto ==="" || fecha_pago ==="" || fech
     return false;
 }
 }*/
-$(function(){
-	alert("hola:")
-});
+$(buscar_datos());
+function buscar_datos(consulta){
+	$.ajax({
+		url: 'buscar.php',
+		type: 'POST',
+		dataType : 'html',
+		data: {consulta: consulta},
+	})
+	.done(function(){
+		$("#datos").html(repuesta);
+	})
+	.fail(function(){
+		console.log("error");
+	})
+}
+$(document).on('keyup', '#search', function(){
+	var valor = $(this).val();
+	if(valor != ""){
+		buscar_datos(valor);
+	}else{
+		buscar_datos();
+	}
+})

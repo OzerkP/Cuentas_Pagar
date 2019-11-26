@@ -18,28 +18,15 @@
 
 <body>
   <ul class="nav nav-tabs">
-    <li class="nav-item">
-      <a class="nav-link active" href="#">Inicio</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">Clientes</a>
-    </li>
+    
     <li class="nav-item">
       <a class="nav-link" href="Anthony/index.php">Suplidores</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="phpV5brA+\Cuentas_pagar2V3.php">Agregar pedidos</a>
+      <a class="nav-link" href="phpV5F/Cuentas_pagar2V3.php">Agregar pedidos</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="CxP%20jer/index.php">Cuentas Por Pagar</a>
     </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">Totales</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">Usuarios</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">Salir</a>
-    </li>
+    
   </ul>

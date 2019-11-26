@@ -20,27 +20,21 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
               <ul class="navbar-nav">
-                <li class="nav-item active">
-                  <a class="nav-link" href="#">Inicio <span class="sr-only">(current)</span></a>
+               
+                
                 </li>
                 <li class="nav-item">
-                        <a class="nav-link" href="#">Cliente</a>
+                        <a class="nav-link" href="../Anthony/Index.php">Suplidores</a>
+                </li>
+        
+                <li class="nav-item">
+                        <a class="nav-link" href="Cuentas_pagar2V3.php">Agregar pedidos</a>
                 </li>
                 <li class="nav-item">
-                        <a class="nav-link" href="#">Proveedores</a>
+                        <a class="nav-link" href="../CxP%20jer/index.php">Cuentas Por pagar</a>
                 </li>
-                <li class="nav-item">
-                        <a class="nav-link" href="#">Por cobrar</a>
-                </li>
-                <li class="nav-item">
-                        <a class="nav-link" href="#">Por pagar</a>
-                </li>
-                <li class="nav-item">
-                        <a class="nav-link" href="#">Totales</a>
-                </li>
-                <li class="nav-item">
-                        <a class="nav-link" href="#">Salir</a>
-                </li>
+               
+                
               </ul>
             
             </div>

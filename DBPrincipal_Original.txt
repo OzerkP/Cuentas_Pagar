@@ -11,13 +11,13 @@ create table producto (
 create table inventario (
     id int AUTO_INCREMENT primary key,
     id_producto int not null,
-    fecha_entrada datetime not null,
+    fecha_entrada date not null,
     precio_entrada int not null,
     descripcion longtext,
     categoria varchar(100) not null,
     foreign key (id_producto) references producto(id_producto)
     );
-create table Cliente (
+create table cliente (
     id_cliente int AUTO_INCREMENT PRIMARY KEY,
     nombre_cliente varchar(50) not null,
     apellido_cliente varchar(50) not null,
@@ -30,23 +30,17 @@ create table Cliente (
 
 create table cuentas_cobrar (
     id_cobrar int AUTO_INCREMENT PRIMARY KEY,
-    id_cliente int not null,
-    fecha_limite datetime not null,
+    fecha_limite date not null,
     cargo_demora double not null,
-    plazo_pago datetime not null,
-    foreign key (id_cliente) REFERENCES cliente(id_cliente)
+    plazo_pago date not null
     );
-    
+
 create table factura (
     id_factura int AUTO_INCREMENT primary key,
     id_cliente int not null,
+    id_pagar int not null,
     metodo_pago varchar(50) not null,
     estado varchar(50) not null,
-    descripcion longtext,
-    itbs double not null,
-    descuento double not null,
-    fecha datetime not null,
-    monto double,
     foreign key (id_cliente) REFERENCES cliente(id_cliente)
     );
 
@@ -55,6 +49,11 @@ create table detalle_factura (
     id_producto int not null,
     id_factura int not null,
     cantidad int not null,
+    descripcion longtext,
+    itbs double not null,
+    descuento double not null,
+    fecha date not null,
+    monto double,
     foreign key (id_producto) REFERENCES producto(id_producto),
     foreign key (id_factura) REFERENCES factura(id_factura)
     );
@@ -71,13 +70,15 @@ create table suplidor(
     
 create table pedido_proveedor (
     id_pedido int primary key auto_increment,
-    id_producto int,
-    fecha_recibo varchar(50) not null,
-    fecha_pago varchar(50) not null,
+    id_producto int not null,
+    id_suplidor int not null,
+    fecha_recibo date not null,
+    fecha_pago date not null,
     monto double not null,
     modo_pago varchar(50) not null,
     estado varchar(50) not null,
-    foreign key (id_producto) references Producto (id_producto)
+    foreign key (id_producto) references producto (id_producto),
+    foreign key (id_suplidor) references suplidor(id_suplidor)
     );
     
 create table cuentas_pagar (

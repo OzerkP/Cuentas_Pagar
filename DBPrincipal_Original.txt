@@ -1,3 +1,5 @@
+Nombre de la base de datos: cuentas_principal
+
 create table producto (
     id_producto int AUTO_INCREMENT primary key,
     producto_nombre varchar(100) not null,

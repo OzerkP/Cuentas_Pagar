@@ -1,4 +1,4 @@
-      <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -32,7 +32,7 @@
 
       <div class="col-4 order-2">
         <div class="searchbar">
-          <input class="search_input" type="text" size="30px" name="search" id="search" placeholder="Search...">
+          <input class="search_input" type="search" size="30px" name="search" placeholder="Search...">
           <a href="#" class="search_icon"> <i class="fas fa-search"></i> </a>
         </div>
       </div>
@@ -71,10 +71,11 @@ if($connection){
       <tr>
         <th scope="col">Id Pedido</th>
         <th scope="col">Id Producto</th>
+        <th scope="col">Id Suplidor</th>
+        <th scope="col">Fecha Recibo</th>
+        <th scope="col">Fecha de pago</th>
         <th scope="col">Monto</th>
         <th scope="col">Modo de pago</th>
-        <th scope="col">Fecha de pago</th>
-        <th scope="col">Fecha Recibo</th>
         <th scope="col">Estado</th>
         <th scope="col">Acciones</th>
       </tr>
@@ -89,20 +90,23 @@ if($connection){
           <td><?php echo $fila[3] ?></td>
           <td><?php echo $fila[4] ?></td>
           <td><?php echo $fila[5] ?></td>
-          <td><p class="text-white bg-success"><?php echo $fila[6] ?></p></td>
+          <td><?php echo $fila[6] ?></td>
 
+          <td><?php if($fila['estado']=='Pagado'){echo '<label class="bg-success rounded">Pagado</label>';}
+          if($fila['estado']=='Atrazado'){echo '<label class="bg-danger rounded">Atrasado</label>';}
+          if($fila['estado']=='Vigente'){echo '<label class="bg-warning rounded">Vigente</label>';} ?></td>
           <td>
-            <a href="pagar.php?$id_pedido=<?php echo $fila[0]; ?>" class="btn btn-success">
+
+            <a href="#" onclick="pagame(<?php echo $fila['id_pedido'];?>)" role="button" class="btn btn-success">
             <i class="fas fa-money-bill-alt"></i>
             </a>
             <a href="modificar.php?id_pedido=<?php echo $fila[0]; ?>" class="btn btn-primary">
               <i class="far fa-edit"></i>
             </a>
 
-            <a href="eliminar.php?$id_pedido=<?php echo $fila[0]; ?>" class="btn btn-danger">
+            <a onclick="deleteme(<?php echo $fila['id_pedido'];?>)" role="button" name="delete" value="delete" class="btn btn-danger">
               <i class="fas fa-trash-restore"></i>
             </a>
-
           </td>
         </tr>
       <?php } ?>
@@ -126,7 +130,21 @@ if($connection){
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
   <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
-  <script src="validar.js">
-    <script>
+
+	<script language="javascript">
+  function deleteme(delid){
+    if (confirm("Seguro de que decea eliminar la factura")) {
+    window.location.href = 'eliminar.php?del_id=' + delid+'';
+    return true;
+  }
+  }
+  function pagame(p){
+    if (confirm("Seguro de que decea pagar la factura")) {
+    window.location.href = 'pagar.php?del_id=' + p + '';
+    return true;
+  }
+  }
+  
+</script>
       </body> 
 </html>

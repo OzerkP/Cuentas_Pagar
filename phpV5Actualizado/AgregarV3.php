@@ -1,19 +1,17 @@
 <?php
   include 'funciones/functions.php';
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	  <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    
     <link rel="stylesheet" href="estilos.css" >
     <link rel="stylesheet" href="../css/bootstrap.css">
-    
     <title>Agregar Factura</title>
     
-
 </head>
 <body>
 <?php include('header.php'); ?>
@@ -24,7 +22,7 @@
               <form action="formulario.php" method="POST" onsubmit=" return validar();">
 
                 <div class="col"> <label for="monto">Monto</label>
-                <input class="form-control"  id="input_monto" name="input_monto" type="text" size="40"  placeholder="Monto">
+                <input class="form-control" name="input_monto" type="text" size="40"  placeholder="Monto" required="autocomplete">
                 </div>
 
                 <div class="col"> <label for="modo">Modo de Pago</label> 
@@ -34,22 +32,24 @@
                       <option value="efectivo">&ltEfectivo&gt</option>
                    </select>
                 </div>
-                <!--<div class="col"><label for="dia">Dias para pagar</label>
-                  <input class="form-control" name="input_dias" type="text" size="40"  placeholder="Dias propuesto para pagar">
-                </div>
-                <div class="col"> <label for="estado">Estado</label>
-                  <select class="form-control" id="select2" name="select2">
-                    <option value="pago">Pagado</option>
-                    <option value="pendiente">Pendiente</option>
-                    <option value="atrazado">Atrazado</option>
-                  </select>
-                </div>-->
 
                   <div class="col"> <label for="eleccion">Id del producto</label><br>
                   <select name="input_id_producto">
-                    <?php while ($fila = mysqli_fetch_array($resultado)){ ?>
-                  <option value="<?=$fila['id_producto'];?>"><?= $fila['id_producto'] ; ?> </option>
-                    <?php } ?>
+                    <?php while ($nom_prod = mysqli_fetch_array($p_n) ){ ?>
+                    <?php while ($fila = mysqli_fetch_array($producto)){ ?>
+                      <option value="<?=$fila['id_producto'];?>"> <?= $nom_prod['producto_nombre'];?> </option>
+                  <?php } ?>
+                   <?php } ?>
+                  </select>
+                  </div>
+                  
+                  <div class="col"> <label for="eleccion">Id del suplidor</label><br>
+                  <select name="input_id_suplidor">
+                    <?php while ($fila2 = mysqli_fetch_array($resultado2)){ ?>
+                      <?php while ($nom_sup = mysqli_fetch_array($n_s)){ ?>
+                  <option value="<?=$fila2['id_suplidor'];?>"> <?= $nom_sup['nombre_suplidor']; ?> </option>
+                  <?php } ?>  
+                  <?php } ?>
                   </select>
                   </div>
 
@@ -62,11 +62,11 @@
                   </select>
                   </div> -->
                   <div class="col"> <label for="pago">Fecha de pago</label><br>
-                  <input class="form-control" type="date" date-format="DD-MM-YYYY" name="input_pago" min="2018-01-01" max="2020-12-31">
+                  <input class="form-control" type="date" date-format="DD-MM-YYYY" name="input_pago" min="2018-01-01" max="2020-12-31" maxlength="10">
                   </div>
 
                   <div class="col"> <label for="recibo">Fecha de recibo</label>
-                <input class="form-control" type="date" date-format="DD-MM-YYYY" name="input_recibo" min="2018-01-01" max="2020-12-31" > 
+                <input class="form-control" type="date" date-format="DD-MM-YYYY" name="input_recibo" min="2018-01-01" max="2020-12-31" maxlength="10" > 
                   </div>
                   <br>
                   <div class="col botones">
@@ -74,8 +74,10 @@
                     <a href="Cuentas_pagar2V3.php" name="volver" class="btn btn-dark" role="button">Volver</a>
 			            </div>
                 </form>
+
 <script src="./js/bootstrap.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <script src="validar.js"></script>
+
 </body>
 </html>

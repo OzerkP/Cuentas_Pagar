@@ -1,4 +1,4 @@
-function validar(){
+/*function validar(){
 let monto,id_producto,id_factura,fecha_pago,fecha_recibo;
 monto = document.getElementById("monto").value;
 id_producto = document.getElementById("producto").value;
@@ -19,4 +19,4 @@ alert("El Telefono Ingresado no es un numero");
 return false;
 }
 
-}
+}*/

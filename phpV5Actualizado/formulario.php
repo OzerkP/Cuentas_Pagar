@@ -4,11 +4,33 @@
     $monto = $_POST['input_monto'];
     $modo_pago = $_POST['select1'];
     $id_producto = $_POST['input_id_producto'];
+    $id_suplidor = $_POST['input_id_suplidor'];
     #$id_factura = $_POST['input_id_factura'];
     #$dias = $_POST['input_dias'];
     $fecha_pago = $_POST['input_pago'];
     $fecha_recibo = $_POST['input_recibo'];
     $estado = "";
+
+    if(empty($monto)){
+    $_SESSION['message'] = 'Factura campos vacios';
+    $_SESSION['message_type'] = 'success';
+    header("Location: AgregarV3.php");
+    }
+    elseif (!is_numeric($monto)) {
+        header("Location: AgregarV3.php");
+    }
+    if (!is_numeric($id_suplidor)) {
+        header("Location: AgregarV3.php");
+    }
+    if (!is_numeric($id_producto)) {
+        header("Location: AgregarV3.php");
+    }
+    if(empty($fecha_pago)){
+        header("Location: AgregarV3.php");   
+    }
+    if(empty($fecha_recibo)){
+        $fecha_recibo = date("Y-m-d");
+    }
     if ($fecha_pago >= $fecha_recibo) {
         $estado = "Vigente";
     }
@@ -16,9 +38,8 @@
         $estado = "Atrazado";
     }
 
-    $intro = "INSERT INTO pedido_proveedor(id_producto,monto,modo_pago,fecha_pago,fecha_recibo,estado)
-    VALUES ($id_producto,$monto,'$modo_pago','$fecha_pago','$fecha_recibo','$estado')";
-        echo $intro;
+    $intro = "INSERT INTO pedido_proveedor(id_producto,id_suplidor,monto,modo_pago,fecha_pago,fecha_recibo,estado)
+    VALUES ($id_producto,$id_suplidor,$monto,'$modo_pago','$fecha_pago','$fecha_recibo','$estado')";
     $enviar = mysqli_query($con,$intro);
 
     if(!$con){

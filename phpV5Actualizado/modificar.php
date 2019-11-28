@@ -1,5 +1,5 @@
 <?php
-include 'conexion.php';
+include 'funciones/functions.php';
 
 if (isset($_GET['id_pedido'])) {
   $id_ped = $_GET['id_pedido'];
@@ -11,9 +11,10 @@ if (isset($_GET['id_pedido'])) {
     $monto       = $data['monto'];
     $modo_pago   = $data['modo_pago'];
     $id_producto = $data['id_producto'];
+    $id_suplidor = $data['id_suplidor'];
     #$id_factura  = $data['id_factura'];
     $fecha_recibo = $data['fecha_recibo'];
-    $fecha_pago  = $data['fecha_recibo'];
+    $fecha_pago  = $data['fecha_pago'];
     $estado      = $data['estado'];
   }
 }
@@ -25,11 +26,12 @@ try {
     $input_monto = $_POST['input_monto'];
     $modo_pago = $_POST['select1'];
     $id_producto = $_POST['input_id_producto'];
+    $id_suplidor = $_POST['input_id_suplidor'];
     #$id_factura  = $data['id_factura'];
     $fecha_recibo = $_POST['input_recibo'];
     $fecha_pago = $_POST['input_pago'];
 
-    $query2 = ("UPDATE pedido_proveedor set monto = $input_monto, modo_pago = '$modo_pago', id_producto = $id_producto, fecha_pago = '$fecha_pago', fecha_recibo = '$fecha_recibo' WHERE id_pedido = $id_ped");
+    $query2 = ("UPDATE pedido_proveedor SET id_producto = $id_producto, id_suplidor = $id_suplidor, fecha_recibo = '$fecha_recibo', fecha_pago = '$fecha_pago', monto = $input_monto, modo_pago = '$modo_pago' WHERE id_pedido = $id_ped");
     mysqli_query($con, $query2);
     echo $query2;
     header("Location:Cuentas_pagar2V3.php");
@@ -69,7 +71,7 @@ try {
           <label for="cliente">Cliente: usuario</label>
           <div class="form-group">
           <label for="monto">Monto</label><br>
-            <input type="text" size="50" name="input_monto" placeholder="Monto" value="<?php echo $monto; ?>" autofocus required />
+            <input type="text" size="50" name="input_monto" placeholder="Monto" value="<?php echo $monto; ?>" required="autocomplete" autofocus required />
             <br>
 
             <br><label for="modo">Modo de Pago</label>
@@ -88,18 +90,30 @@ try {
               </select>
             </div>-->
 
-            <label for="id_productor">Id del producto</label>
             <br>
-            <input name="input_id_producto" type="text" size="50" placeholder="Id del Producto" value="<?php echo $id_producto; ?>">
+            <div class="col"> <label for="eleccion">Id del producto</label><br>
+                  <select name="input_id_producto">
+                    <?php while ($fila = mysqli_fetch_array($resultado)){ ?>
+                  <option value="<?=$fila['id_producto'];?>"><?= $fila['id_producto'] ; ?> </option>
+                    <?php } ?>
+                  </select>
+                  </div>
           </div>
+          <div class="col"> <label for="eleccion">Id del suplidor</label><br>
+                  <select name="input_id_suplidor">
+                    <?php while ($fila2 = mysqli_fetch_array($resultado2)){ ?>
+                  <option value="<?=$fila2['id_suplidor'];?>"><?= $fila2['id_suplidor'] ; ?> </option>
+                    <?php } ?>
+                  </select>
+                  </div>
          <!--<label for="id_factura">Id de la factura</label>
            <input name="input_id_factura" type="text" size="40" placeholder="Id de la factura" value="<?php echo $id_factura; ?>"> -->
           <br>
           <label for="pago">Fecha de pago</label>
-          <input name="input_pago" type="text" size="50" placeholder="Fecha de pago" value="<?php echo $fecha_pago; ?>">
+          <input name="input_pago" type="text" size="50" maxlength="10" placeholder="Fecha de pago" required="autocomplete" value="<?php echo $fecha_pago; ?>">
           <br>
           <label for="recibo">Fecha de entrega</label>
-          <input name="input_recibo" type="text" size="50" placeholder="Fecha de recibo" value="<?php echo $fecha_recibo; ?>">
+          <input name="input_recibo" type="text" size="50" maxlength="10" required="autocomplete" placeholder="Fecha de recibo" value="<?php echo $fecha_recibo; ?>">
           <br>
           <button type="submit" name="actualizar" class="btn btn btn-info">Actualizar</button>
           <a href="Cuentas_pagar2V3.php" name="volver" class="btn btn btn-dark" role="button">Volver</a>
@@ -203,22 +217,3 @@ try {
 
 </body>
 </html>
-alert("hola");
-function validar() {
-let monto,modo,estado,id_producto,fecha_pago,fecha_recibo;
-monto = document.getElementsByName("input_monto").value;
-modo = document.getElementsByName("select1").value;
-estado = document.getElementsByName("select2").value;
-id_producto = document.getElementsByName("input_id_producto").value;
-fecha_pago = document.getElementsByName("input_pago").value;
-fecha_recibo = document.getElementsName("input_recibo").value;
-expresion = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
-
-
-if(monto ==="" || modo ==="" || estado ==="" || id_producto ==="" || fecha_pago ==="" || fecha_recibo === "" ){
-
-    alert("Debes Completar Todos los Campos!");
-    return false;
-}
-
-}

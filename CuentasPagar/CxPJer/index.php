@@ -65,24 +65,10 @@
   <?php
   $con = mysqli_connect("localhost", "root", "", "cuentas_pagar");
   ?>
-  <header>
-  <ul class="nav nav-tabs">
-    
-    <li class="nav-item">
-      <a class="nav-link" href="../Anthony/index.php">Suplidores</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="../phpV5F/Cuentas_pagar2V3.php">Agregar pedidos</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="../CxP%20jer/index.php">Cuentas Por Pagar</a>
-    </li>
-    
-  </ul>
-  </header>
+
 
   <table class="table table-striped">
-    <thead class="thead-dark">
+    <thead class="thead">
       <tr>
         <th scope="col">#</th>
         <th scope="col">Empresa</th>

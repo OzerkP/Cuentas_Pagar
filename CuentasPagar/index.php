@@ -28,7 +28,7 @@
       <div class="list-group list-group-flush">
         <a href="CxPJer/index.php" class="list-group-item list-group-item-action bg-light">Cuentas por pagar</a>
         <a href="Anthony/index.php" class="list-group-item list-group-item-action bg-light">Suplidores</a>
-        <a href="phpV5F/Cuentas_pagar2V3.php" class="list-group-item list-group-item-action bg-light">Pedido suplidor</a>
+        <a href="phpRaniel\Cuentas_pagar2V3.php" class="list-group-item list-group-item-action bg-light">Pedido suplidor</a>
         
       </div>
     </div>

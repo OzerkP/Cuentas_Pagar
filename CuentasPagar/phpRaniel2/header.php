@@ -13,41 +13,7 @@
     <script src="validar.js"></script>
 </head>
 <body>
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#">Sistema Contable</a>
-            <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-              <ul class="navbar-nav">
-                <li class="nav-item active">
-                  <a class="nav-link" href="#">Inicio <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                        <a class="nav-link" href="#">Cliente</a>
-                </li>
-                <li class="nav-item">
-                        <a class="nav-link" href="#">Proveedores</a>
-                </li>
-                <li class="nav-item">
-                        <a class="nav-link" href="#">Por cobrar</a>
-                </li>
-                <li class="nav-item">
-                        <a class="nav-link" href="#">Por pagar</a>
-                </li>
-                <li class="nav-item">
-                        <a class="nav-link" href="#">Totales</a>
-                </li>
-                <li class="nav-item">
-                        <a class="nav-link" href="#">Salir</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-                </li>
-              </ul>
-            
-            </div>
-    </nav>
+      
     
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

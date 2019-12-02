@@ -5,7 +5,7 @@
 La real conxion
 */
 session_start();
-$con = mysqli_connect("localhost", "root","", "cuentas_pagar");
+$con = mysqli_connect("localhost", "root","", "cuentas_principal");
 if(isset($con)){
  
 }

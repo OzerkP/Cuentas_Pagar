@@ -23,7 +23,7 @@
   <div class="list-group list-group-flush">
     <a href="index.php" class="list-group-item list-group-item-action bg-light">Cuentas por pagar</a>
     <a href="../Anthony/index.php" class="list-group-item list-group-item-action bg-light">Suplidores</a>
-    <a href="phpV5F/Cuentas_pagar2V3.php" class="list-group-item list-group-item-action bg-light">Pedido suplidor</a>
+    <a href="../phpRaniel2/Cuentas_pagar2V3.php" class="list-group-item list-group-item-action bg-light">Pedido suplidor</a>
     
   </div>
 </div>
@@ -63,7 +63,7 @@
   </nav>
 
   <?php
-  $con = mysqli_connect("localhost", "root", "", "cuentas_pagar");
+  $con = mysqli_connect("localhost", "root", "", "cuentas_principal");
   ?>
 
 
@@ -83,14 +83,14 @@
         <th scope="col">Modo pago</th>
         <th scope="col">Monto</th>
         <th scope="col">Estado</th>
-        <th scope="col">Factura</th>
+        
 
 
 
       </tr>
     </thead>
     <?php $sql = 
-          "select s.id_suplidor,s.empresa,s.nombre_suplidor,s.direccion,s.telefono,s.correo,p.producto_nombre,p.cantidad,pedido.fecha_recibo,pedido.fecha_pago,pedido.modo_pago,pedido.monto,pedido.estado,pedido.id_factura
+          "select s.id_suplidor,s.empresa,s.nombre_suplidor,s.direccion,s.telefono,s.correo,p.producto_nombre,p.cantidad,pedido.fecha_recibo,pedido.fecha_pago,pedido.modo_pago,pedido.monto,pedido.estado
           from cxp 
           inner join pedido_proveedor as pedido
           on pedido.id_pedido = cxp.id_pedido
@@ -124,7 +124,7 @@
           <td><?php echo $filas['modo_pago'] ?></td>
           <td><?php echo $filas['monto'] ?></td>
           <td><?php echo $filas['estado'] ?></td>
-          <td><?php echo $filas['id_factura'] ?></td>
+          
 
         </tr>
 

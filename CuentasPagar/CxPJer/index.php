@@ -91,11 +91,11 @@
     </thead>
     <?php $sql = 
           "select s.id_suplidor,s.empresa,s.nombre_suplidor,s.direccion,s.telefono,s.correo,p.producto_nombre,p.cantidad,pedido.fecha_recibo,pedido.fecha_pago,pedido.modo_pago,pedido.monto,pedido.estado
-          from cxp 
+          from cuentas_pagar 
           inner join pedido_proveedor as pedido
-          on pedido.id_pedido = cxp.id_pedido
+          on pedido.id_pedido = cuentas_pagar.id_pedido
           inner join suplidor as s
-          on s.id_suplidor = cxp.id_suplidor
+          on s.id_suplidor = cuentas_pagar.id_suplidor
           inner join producto as p
           on p.id_producto = pedido.id_producto
           group by p.id_producto";

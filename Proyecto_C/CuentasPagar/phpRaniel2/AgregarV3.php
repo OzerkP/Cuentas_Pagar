@@ -25,6 +25,10 @@
                 <input class="form-control" name="input_monto" type="text" size="40"  placeholder="Monto" required="autocomplete">
                 </div>
 
+                <?php while ($l = mysqli_fetch_array($id_pedido) ){ ?>
+                      <input type="hidden" name="id_pedido" value="<?=$l['id_pedido'];?>">
+                  <?php } ?>
+
                 <div class="col"> <label for="modo">Modo de Pago</label> 
 					         <select class="form-control" name="select1" id="select1">
                       <option value="tarjeta">&ltTarjeta de Credito&gt</option>
@@ -43,11 +47,9 @@
                   
                   <div class="col"> <label for="eleccion">Id del suplidor</label><br>
                   <select name="input_id_suplidor">
-                    <?php while ($fila2 = mysqli_fetch_array($resultado2)){ ?>
                       <?php while ($nom_sup = mysqli_fetch_array($n_s)){ ?>
-                  <option value="<?=$fila2['id_suplidor'];?>"> <?= $nom_sup['nombre_suplidor']; ?> </option>
+                  <option value="<?=$nom_sup['id_suplidor'];?>"> <?= $nom_sup['nombre_suplidor']; ?> </option>
                   <?php } ?>  
-                  <?php } ?>
                   </select>
                   </div>
 
@@ -64,7 +66,7 @@
                   </div>
 
                   <div class="col"> <label for="recibo">Fecha de recibo</label>
-                <input class="form-control" type="date" date-format="DD-MM-YYYY" name="input_recibo" min="2018-01-01" max="2020-12-31" maxlength="10" > 
+                <input class="form-control" type="date" date-format="DD-MM-YYYY" name="input_recibo" min="2018-01-01" max="2020-12-31" maxlength="10"> 
                   </div>
                   <br>
                   <div class="col botones">

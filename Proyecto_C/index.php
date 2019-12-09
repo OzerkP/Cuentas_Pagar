@@ -30,7 +30,7 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="Facturacion">Inventario/Facturacion</a>
+            <a class="nav-link js-scroll-trigger" href="inventario-master\index.php">Inventario/Facturacion</a>
           </li>
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="contabilidad2320/cliente">Cuentas por cobrar</a>

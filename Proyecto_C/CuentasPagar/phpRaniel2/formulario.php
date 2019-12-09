@@ -1,10 +1,13 @@
 <?php
     $con = mysqli_connect('localhost','root','','cuentas_principal');
+    
     try{
     $monto = $_POST['input_monto'];
     $modo_pago = $_POST['select1'];
     $id_producto = $_POST['input_id_producto'];
     $id_suplidor = $_POST['input_id_suplidor'];
+    
+    $id_pedido = $_POST['id_pedido'];
     #$id_factura = $_POST['input_id_factura'];
     #$dias = $_POST['input_dias'];
     $fecha_pago = $_POST['input_pago'];
@@ -37,10 +40,14 @@
     else{
         $estado = "Atrazado";
     }
+  
 
     $intro = "INSERT INTO pedido_proveedor(id_producto,id_suplidor,monto,modo_pago,fecha_pago,fecha_recibo,estado)
     VALUES ($id_producto,$id_suplidor,$monto,'$modo_pago','$fecha_pago','$fecha_recibo','$estado')";
     $enviar = mysqli_query($con,$intro);
+
+    $llevar = "INSERT INTO cuentas_pagar(id_pedido,id_suplidor) VALUES ($id_pedido,$id_suplidor)";
+    $llevado = mysqli_query($con,$llevar);
 
     if(!$con){
       die("Connection failed: " . mysqli_connect_errno());

@@ -88,19 +88,21 @@
 					
 				</tr>
 				<?php
-				while ($row=mysqli_fetch_array($query)){
+				while ($row=mysqli_fetch_assoc($query)){
 						$id_producto=$row['id_producto'];
 						$codigo_producto=$row['codigo_producto'];
-						$nombre_producto=$row['nombre_producto'];
-						$status_producto=$row['status_producto'];
+						$nombre_producto=$row['producto_nombre'];
+						$status_producto=$row['cantidad'];
 						if ($status_producto==1){$estado="Activo";}
 						else {$estado="Inactivo";}
-						$date_added= date('d/m/Y', strtotime($row['date_added']));
+						$categoria=$row['categoria'];
+						//$date_added= date('d/m/Y', strtotime($row['date_added']));
 						$precio_producto=$row['precio_producto'];
 					?>
 					
 					<input type="hidden" value="<?php echo $codigo_producto;?>" id="codigo_producto<?php echo $id_producto;?>">
 					<input type="hidden" value="<?php echo $nombre_producto;?>" id="nombre_producto<?php echo $id_producto;?>">
+					<input type="hidden" value="<?php echo $categoria;?>" id="categoria<?php echo $id_producto;?>">
 					<input type="hidden" value="<?php echo $estado;?>" id="estado<?php echo $id_producto;?>">
 					<input type="hidden" value="<?php echo number_format($precio_producto,2,'.','');?>" id="precio_producto<?php echo $id_producto;?>">
 					<tr>

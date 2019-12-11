@@ -23,7 +23,7 @@
 		$estado=intval($_POST['estado']);
 		$precio_venta=floatval($_POST['precio']);
 		$date_added=date("Y-m-d H:i:s");
-		$sql="INSERT INTO products (codigo_producto, nombre_producto, status_producto, date_added, precio_producto) VALUES ('$codigo','$nombre','$estado','$date_added','$precio_venta')";
+		$sql="INSERT INTO products (codigo_producto, nombre_producto, status_producto, date_added, precio_producto ,categoria) VALUES ('$codigo','$nombre','$estado','$date_added','$precio_venta $categoria')";
 		$query_new_insert = mysqli_query($con,$sql);
 			if ($query_new_insert){
 				$messages[] = "Producto ha sido ingresado satisfactoriamente.";

@@ -8,8 +8,6 @@
     <a href="form.php" class="list-group-item list-group-item-action bg-light">Agregar Producto</a>
     <a href="Update.php" class="list-group-item list-group-item-action bg-light">Actualizar</a>
     <a href="facturas.php" class="list-group-item list-group-item-action bg-light">Facturacion</a>
-    <a href="#" class="list-group-item list-group-item-action bg-light">Profile</a>
-    <a href="#" class="list-group-item list-group-item-action bg-light">Status</a>
   </div>
 </div>
 <!-- /#sidebar-wrapper -->

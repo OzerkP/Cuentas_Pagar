@@ -3,35 +3,21 @@
 function Add(){
     if (isset($_POST['submit'])) {
         
-        $id = $_POST['id'];
+        // $id = $_POST['id'];
         $nombre = $_POST['nombre'];
         $categoria = $_POST['categoria'];
         $marca = $_POST['marca'];
         $precio = $_POST['precio'];
         $cantidad = $_POST['cantidad'];
         $descrip = $_POST['descrip'];
-        $connection = mysqli_connect('localhost','root','','proyecto');
+        $connection = mysqli_connect('localhost','root','','cuentas_principal');
 
-        $query_check_name = "SELECT * FROM producto WHERE produc_name = '$nombre'";
-        $result_id = mysqli_query($connection, $query_check_name);
-        $query_check_id = "SELECT * FROM producto WHERE id_producto = '$id'";
-        $result_name = mysqli_query($connection, $query_check_id);
-
-        if(mysqli_num_rows($result_id)>0){
-            echo "this ID all ready exists";
-        }
-        else if(mysqli_num_rows($result_name)){
-            echo "this Name all ready exists";
-   
-        }
-        else if (!is_numeric($id)) {
-            echo "The Id field can not contain Strings";
-        } 
-         else {
+       
+      
 
 
-            $query = "INSERT INTO producto(id_producto,produc_name,category,marca,precio,cantidad,descripcion)";
-            $query .= "VALUES($id,'$nombre','$categoria','$marca',$precio,$cantidad,'$descrip')";
+            $query = "INSERT INTO producto(producto_nombre,categoria,marca,precio,cantidad,descripcion)";
+            $query .= "VALUES('$nombre','$categoria','$marca',$precio,$cantidad,'$descrip')";
 
 
             $result = mysqli_query($connection, $query);
@@ -41,20 +27,17 @@ function Add(){
             }
         }
     }
-}
+
 
 function delete (){
 
     if(isset($_GET['delete'])){
         $delete = $_GET['delete'];
 
-        $connection = mysqli_connect('localhost','root','','proyecto');
+        $connection = mysqli_connect('localhost','root','','cuentas_principal');
         $delete_query = "DELETE FROM producto WHERE id_producto = $delete";
         $delete_result = mysqli_query($connection,$delete_query);
         header('Location: index.php');
-
-
-
     }
 
 
@@ -90,12 +73,12 @@ function update(){
     if (!is_numeric($id)) {
         echo "The Id field can not contain Strings";
     } else {
-        $connection = mysqli_connect('localhost','root','','proyecto');
+        $connection = mysqli_connect('localhost','root','','cuentas_principal');
 
 
         $query = "UPDATE producto SET
-        produc_name = '$nombre',
-        category= '$categoria',
+        producto_nombre = '$nombre',
+        categoria= '$categoria',
         marca= '$marca',
         precio= $precio,
         cantidad= $cantidad,

@@ -14,7 +14,7 @@
     
     <form class="mt-4" action=""  method="post" >
       <label for="name" >Product ID</label>
-      <input id="id"  type="text" name="id" required class="form-control " placeHolder="ID" >
+      <!-- <input id="id"  type="text" name="id" required class="form-control " placeHolder="ID" > -->
 
       <label for="name" >Nombre Producto</label>
       <input type="text"  name="nombre" required class="form-control" placeHolder="Nombre">

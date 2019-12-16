@@ -9,6 +9,7 @@ $resultado2 = mysqli_query($con,'SELECT id_suplidor FROM suplidor');
 $producto = mysqli_query($con, 'SELECT id_producto FROM producto');
 $p_n = mysqli_query($con, 'SELECT * FROM producto');
 $n_s = mysqli_query($con, 'SELECT id_suplidor,nombre_suplidor FROM suplidor');
+$pedido = mysqli_query($con, 'SELECT id_pedido,id_suplidor FROM pedido_proveedor');
 
 $data_array = array(
         'id' => 'id_proveedor',

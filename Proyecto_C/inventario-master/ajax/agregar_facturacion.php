@@ -1,4 +1,4 @@
-<?php
+ <?php
 
 $session_id= session_id();
 if (isset($_POST['id'])){$id=$_POST['id'];}

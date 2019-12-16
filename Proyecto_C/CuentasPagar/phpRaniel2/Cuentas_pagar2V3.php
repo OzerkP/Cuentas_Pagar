@@ -128,6 +128,9 @@ if($connection){
             <a onclick="deleteme(<?php echo $fila['id_pedido'];?>)" role="button" name="delete" value="delete" class="btn btn-danger">
               <i class="fas fa-trash-restore"></i>
             </a>
+            <a href="llevar.php?id_pedido=<?php echo $fila[0]; ?>" class="btn btn-info">
+              <i class="fas fa-info-circle"></i>
+            </a>
           </td>
         </tr>
       <?php } ?>

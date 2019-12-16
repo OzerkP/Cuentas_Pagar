@@ -7,7 +7,8 @@
     <a href="index.php" class="list-group-item list-group-item-action bg-light">Productos</a>
     <a href="form.php" class="list-group-item list-group-item-action bg-light">Agregar Producto</a>
     <a href="Update.php" class="list-group-item list-group-item-action bg-light">Actualizar</a>
-    <a href="facturas.php" class="list-group-item list-group-item-action bg-light">Facturacion</a>
+    <a href="Facturacion" class="list-group-item list-group-item-action bg-light">Facturacion</a>
+    <a href="inventario2\index.php" class="list-group-item list-group-item-action bg-light">Inventario</a>
   </div>
 </div>
 <!-- /#sidebar-wrapper -->

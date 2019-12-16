@@ -84,7 +84,8 @@
           inner join suplidor as s
           on s.id_suplidor = cuentas_pagar.id_suplidor
           inner join producto as p
-          on p.id_producto = pedido.id_producto";
+          on p.id_producto = pedido.id_producto
+          Group by id_pagar";
 
     $resultado = mysqli_query($con, $sql);
     while ($filas = mysqli_fetch_array($resultado)) {
